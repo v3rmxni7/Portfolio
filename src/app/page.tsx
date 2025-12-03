@@ -112,10 +112,27 @@ const EXPERIENCE = [
 ];
 
 // =========================
+// TYPES FOR PROPS
+// =========================
+
+type IconType = React.ComponentType<{ size?: number; className?: string }>;
+
+type SocialLinkProps = {
+  href: string;
+  icon: IconType;
+  label: string;
+};
+
+type SectionLabelProps = {
+  icon: IconType;
+  title: string;
+};
+
+// =========================
 // UI COMPONENTS
 // =========================
 
-const SocialLink = ({ href, icon: Icon, label }) => (
+const SocialLink: React.FC<SocialLinkProps> = ({ href, icon: Icon, label }) => (
   <a
     href={href}
     target="_blank"
@@ -127,7 +144,7 @@ const SocialLink = ({ href, icon: Icon, label }) => (
   </a>
 );
 
-const TerminalWindow = () => {
+const TerminalWindow: React.FC = () => {
   const [text, setText] = useState("");
   const fullText = `> env: python3.11
 > import torch
@@ -169,7 +186,7 @@ const TerminalWindow = () => {
   );
 };
 
-const SectionLabel = ({ icon: Icon, title }) => (
+const SectionLabel: React.FC<SectionLabelProps> = ({ icon: Icon, title }) => (
   <div className="flex items-center gap-2 mb-6">
     <Icon className="text-emerald-400" size={22} />
     <h2 className="text-xl md:text-2xl font-semibold text-slate-50">
@@ -185,7 +202,7 @@ const SectionLabel = ({ icon: Icon, title }) => (
 export default function Portfolio() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState<string>("about");
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -215,19 +232,19 @@ export default function Portfolio() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth", block: "start" });
     setMobileMenuOpen(false);
   };
 
-  const navButtonClass = (id) =>
+  const navButtonClass = (id: string) =>
     `relative text-sm font-medium transition-colors ${
       activeSection === id ? "text-emerald-400" : "text-slate-300"
     }`;
 
-  const navUnderline = (id) =>
+  const navUnderline = (id: string) =>
     activeSection === id ? (
       <span className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-sky-500" />
     ) : null;
@@ -326,7 +343,7 @@ export default function Portfolio() {
         <div className="space-y-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-[11px] font-mono text-emerald-200 mb-1 shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Available for AI / ML + Full Stack roles
+            IIT ROORKEE&apos; 26
           </div>
 
           <div className="space-y-4">
@@ -352,18 +369,6 @@ export default function Portfolio() {
                 </span>
               ))}
             </div>
-
-            {/* Location + email */}
-            <div className="flex flex-wrap gap-4 text-xs md:text-sm text-slate-400 font-mono pt-1">
-              <span>{PROFILE.location}</span>
-              <span className="hidden md:inline text-slate-600">•</span>
-              <a
-                href={`mailto:${PROFILE.email}`}
-                className="hover:text-emerald-400"
-              >
-                {PROFILE.email}
-              </a>
-            </div>
           </div>
 
           {/* CTA + Socials */}
@@ -373,7 +378,7 @@ export default function Portfolio() {
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 hover:from-emerald-400 hover:to-cyan-400 transition-all hover:-translate-y-0.5"
             >
               <Zap size={16} />
-              <span>Let&apos;s talk</span>
+              <span>Let&apos;s connect</span>
             </a>
             <div className="flex gap-3">
               <SocialLink
@@ -408,7 +413,7 @@ export default function Portfolio() {
               <div className="absolute -inset-[3px] rounded-full bg-gradient-to-tr from-emerald-500 via-cyan-400 to-indigo-500 opacity-80 blur-sm" />
               <div className="relative rounded-full overflow-hidden border border-slate-700 w-20 h-20 md:w-24 md:h-24 bg-slate-800">
                 <Image
-                  src="/nischay.jpg" // update with your image path
+                  src="/nischay.jpg" // ensure this exists in /public
                   alt={PROFILE.name}
                   width={120}
                   height={120}
