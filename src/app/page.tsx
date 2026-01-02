@@ -23,8 +23,8 @@ import {
 
 const PROFILE = {
   name: "Nischay Vermani",
-  role: "AI Engineer & Full Stack Developer",
-  bio: "I bridge the gap between research and production. I build agentic workflows, RAG systems, and fine-tuned LLMs that actually ship.",
+  role: "AI Engineer (Agentic AI, LLM Systems, MLOps)",
+  bio: "I design and ship production-grade AI systems — from agentic workflows and RAG pipelines to evaluation, monitoring, and deployment of LLM-powered products.",
   location: "IIT Roorkee, India",
   email: "nischay_v@ee.iitr.ac.in",
   socials: {
@@ -77,37 +77,39 @@ const TECH_STACK = {
 
 const PROJECTS = [
   {
+    title: "LLM Monitoring & Evaluation Pipeline",
+    tech: ["Python", "FastAPI", "MLflow", "MLOps", "LLM Evaluation"],
+    desc: "Designed a production-grade LLM evaluation pipeline to monitor relevance, schema validity, and hallucinations. Engineered automated checks using Pydantic validation and embedding similarity to ensure output reliability. Tracked prompts, models, and metrics with MLflow to enable regression analysis across LLM iterations. Built monitoring views to analyze failure rates, drift trends, and response stability over time.",
+    link: "", // add GitHub link if public
+  },
+  {
     title: "Generative UI Builder",
-    tech: ["Multimodal Agents", "LLaVA", "Next.js"],
-    desc: "Agentic system that ingests UI screenshots + text prompts and generates production-ready React/Tailwind components via multimodal reasoning.",
+    tech: ["FastAPI", "Next.js", "TailwindCSS", "LLaVA", "CodeLlama"],
+    desc: "Engineered a multimodal GenAI system that converts UI screenshots and text prompts into production-ready React/Tailwind components. Orchestrated LLM workflows using a structured JSON UI schema to ensure deterministic and valid outputs. Built an async FastAPI backend for image ingestion, prompt routing, and response generation. Improved reliability using schema validation, strict prompting, and fallback logic for LLM failures.",
     link: "",
   },
   {
-    title: "FinGPT-RAG System",
-    tech: ["RAG", "LangChain", "Finance Ops"],
-    desc: "High-precision Q&A system over 1,500+ RBI policy documents using retrieval-aware prompting, hybrid search, and domain-specific ranking.",
+    title: "FinGPT-RAG",
+    tech: ["LangChain", "Hugging Face", "FAISS", "Python", "RAG"],
+    desc: "Built an enterprise-style RAG system using LangChain and FAISS for grounded financial document Q&A. Vectorized 1,500+ RBI policy pages with SentenceTransformers to enable high-precision semantic retrieval. Conditioned LLM responses with retrieved context to reduce hallucinations and improve factual accuracy. Optimized chunking, caching, and query flow for low-latency multi-query inference workloads.",
     link: "",
   },
   {
-    title: "AI Resume Analyzer",
-    tech: ["NLP", "NER", "spaCy"],
-    desc: "Automated resume screening pipeline using NER to extract skills and rank candidates against role-specific job descriptions.",
-    link: "",
-  },
-  {
-    title: "Student Performance Engine",
-    tech: ["MLOps", "scikit-learn", "Flask"],
-    desc: "End-to-end predictive pipeline served via REST API with CI-ready structure, 98% uptime and sub-300ms inference latency.",
+    title: "AI Resume Analyzer & Job Matcher",
+    tech: ["Python", "FastAPI", "LLMs", "RAG", "spaCy"],
+    desc: "Designed an LLM-powered HR decision system for explainable resume–job matching. Integrated RAG-grounded reasoning to evaluate candidates reliably against role expectations. Enforced structured JSON outputs with schema validation for consistent and deterministic evaluations. Implemented bias-aware analysis and REST APIs to support fair, scalable hiring workflows.",
     link: "",
   },
 ];
+
 
 const EXPERIENCE = [
   {
     company: "Classplus",
     role: "Data Analyst Intern",
     period: "Dec 2024 — Jan 2025",
-    desc: "Optimized analytics for an EdTech unicorn. Built automated KPI dashboards and applied K-Means clustering for data-driven user segmentation.",
+    desc: "Built a chat-with-book system using LangChain and LLM APIs to query 200+ educational books. Designed ingestion, embedding, and retrieval pipelines to improve response relevance and consistency. Implemented structured retrieval workflows (chunking, indexing, query routing) to reduce hallucinations. Automated content analysis workflows using web scraping and trend signals to reduce manual operations.",
+
   },
 ];
 
