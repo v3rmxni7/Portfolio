@@ -105,11 +105,10 @@ const PROJECTS = [
 
 const EXPERIENCE = [
   {
-    company: "Classplus",
-    role: "Data Analyst Intern",
-    period: "Dec 2024 — Jan 2025",
-    desc: "Built a chat-with-book system using LangChain and LLM APIs to query 200+ educational books. Designed ingestion, embedding, and retrieval pipelines to improve response relevance and consistency. Implemented structured retrieval workflows (chunking, indexing, query routing) to reduce hallucinations. Automated content analysis workflows using web scraping and trend signals to reduce manual operations.",
-
+    company: "HelloAgentic.ai",
+    role: "AI Developer Intern",
+    period: "Jan 2026 — Present",
+    desc: "Engineered a distributed multi-agent orchestration system on FastAPI/WebSockets architecture for real-time query decomposition and multi-modal task execution at scale. Implemented dynamic LLM routing across GPT-4o, Claude, and Groq with intelligent cost-latency optimization, reducing mean inference latency by ~35% while preserving reasoning capabilities. Developed production agentic workflows with hierarchical task delegation, tool composition (web research, document intelligence, computer vision), and comprehensive execution logging for system observability. Built automated failure recovery mechanisms and sub-100ms latency tracking across distributed agent topology to improve reliability and debuggability.",
   },
 ];
 
